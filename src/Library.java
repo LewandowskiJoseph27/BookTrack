@@ -12,13 +12,13 @@ public class Library
     -returnBook(Book) DONE
     -findBook(title) DONE
     -findBookAuth(Author)DONE
-    -findBooks(Genre)
+    -findBooks(Genre) Return list of books
     -printBooks() DONE
 
     -addMember(Member) DONE
-    -FindMember(name)
+    -FindMember(name) overload DONE
     -findMember(id)DONE
-    -printMembers()
+    -printMembers() DONE
      */
 
     public void addBook(Book _book)
@@ -140,6 +140,18 @@ public class Library
             System.out.print(members.get(i).getName() + ", ");
         }
         System.out.println(members.getLast().getName() + "]");
+    }
+    public boolean findMember(String _name)
+    {
+        boolean found = false;
+        for(int i = 0; i < members.size() && !found; i++)
+        {
+            if(members.get(i).getName().equals(_name))
+            {
+                found = true;
+            }
+        }
+        return found;
     }
 
 

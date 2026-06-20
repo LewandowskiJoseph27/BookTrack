@@ -38,7 +38,7 @@ public class Main
         lib.returnBook(book2);
         int pos = lib.findBook("Of Mice And Men");
         int pos2 = lib.findBookAuth("Me");
-        System.out.println(lib.findMember(5001));
+        System.out.println(lib.findMember("aleena"));
         lib.printMembers();
 
 
