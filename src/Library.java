@@ -17,7 +17,7 @@ public class Library
 
     -addMember(Member) DONE
     -FindMember(name)
-    -findMember(id)
+    -findMember(id)DONE
     -printMembers()
      */
 
@@ -132,6 +132,16 @@ public class Library
         }
         return found;
     }
+    public void printMembers()
+    {
+        System.out.print("[" + members.getFirst().getName() + ", ");
+        for(int i = 1; i < members.size() - 1; i++)
+        {
+            System.out.print(members.get(i).getName() + ", ");
+        }
+        System.out.println(members.getLast().getName() + "]");
+    }
+
 
 
 

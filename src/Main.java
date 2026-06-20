@@ -30,7 +30,6 @@ public class Main
         lib.addBook(book3);
         lib.addBook(book4);
         lib.addMember(anna);
-        lib.addMember(anna);
         lib.addMember(jake);
         lib.addMember(aleena);
         lib.printBooks();
@@ -40,6 +39,7 @@ public class Main
         int pos = lib.findBook("Of Mice And Men");
         int pos2 = lib.findBookAuth("Me");
         System.out.println(lib.findMember(5001));
+        lib.printMembers();
 
 
 
