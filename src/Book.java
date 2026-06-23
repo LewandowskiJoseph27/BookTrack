@@ -6,13 +6,11 @@ public class Book
     private int isbn;
     private boolean available;
 
-    public Book(String _title, String _author, String _genre,
-                int _isbn)
+    public Book(String _title, String _author, String _genre)
     {
         title = _title;
         author = _author;
         genre = _genre;
-        isbn = _isbn;
         available = true;
     }
 
@@ -27,10 +25,6 @@ public class Book
     public void setGenre(String _genre)
     {
         genre = _genre;
-    }
-    public void setIsbn(int _isbn)
-    {
-        isbn = _isbn;
     }
     public void setAvailable(boolean _available)
     {
@@ -48,10 +42,6 @@ public class Book
     public String getGenre()
     {
         return genre;
-    }
-    public int getIsbn()
-    {
-        return isbn;
     }
     public boolean isAvailable()
     {
