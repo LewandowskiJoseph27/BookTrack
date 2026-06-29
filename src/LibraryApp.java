@@ -15,9 +15,6 @@ public class LibraryApp
 
     public void run()
     {
-        String title;
-        String author;
-        String genre;
         do
         {
             printMenu();
@@ -28,19 +25,24 @@ public class LibraryApp
             {
                 case 1:
                     System.out.println("What is the book title? ");
-                    title = in.nextLine();
+                    String title = in.nextLine();
+
                     System.out.println("Who is the Author of the book? ");
-                    author = in.nextLine();
+                    String author = in.nextLine();
+
                     System.out.println("What genre is the book? ");
-                    genre = in.next();
+                    String genre = in.nextLine();
+
                     Book book = new Book(title, author, genre);
                     library.addBook(book);
+
                     break;
                 case 2:
                     library.printBooks();
                     System.out.println("What book would you like to checkout? ");
                     title = in.nextLine();
-                    //finish checkout method
+                    library.checkout(title);
+
 
 
             }

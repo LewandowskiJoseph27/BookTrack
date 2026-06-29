@@ -29,27 +29,25 @@ public class Library
     {
         members.add(_member);
     }
-    public void checkout(Book _book)
+    public void checkout(String title)
     {
-        boolean found = false;
-        int pos = 0;
-        for(int i = 0; i < books.size(); i++)
+        for (int i = 0; i < books.size(); i++)
         {
-            if(books.get(i).getTitle() == _book.getTitle())
+            if (books.get(i).getTitle().equals(title))
             {
-                pos = i;
-                found = true;
+                if (!books.get(i).isAvailable())
+                {
+                    System.out.println("Book is already checked out.");
+                    return;
+                }
+
+                books.get(i).setAvailable(false);
+                System.out.println("Book was successfully checked out.");
+                return;
             }
         }
-        if(found)
-        {
-            System.out.println("Book was successfully checkout out");
-            books.get(pos).setAvailable(false);
-        }
-        else
-        {
-            System.out.println("Book is not in the system");
-        }
+
+        System.out.println("Book is not in the system.");
     }
     public void returnBook(Book _book)
     {
@@ -79,12 +77,26 @@ public class Library
     }
     public void printBooks()
     {
-        System.out.print("[" + books.getFirst().getTitle() + ", ");
-        for(int i = 1; i < books.size() - 1; i++)
+
+        System.out.print("[");
+
+        boolean first = true;
+
+        for (Book b : books)
         {
-            System.out.print(books.get(i).getTitle() + ", ");
+            if (b.isAvailable())
+            {
+                if (!first)
+                {
+                    System.out.print(", ");
+                }
+
+                System.out.print(b.getTitle());
+                first = false;
+            }
         }
-        System.out.println(books.getLast().getTitle() + "]");
+
+        System.out.println("]");
 
     }
     public int findBook(String _title)
