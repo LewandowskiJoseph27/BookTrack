@@ -49,31 +49,25 @@ public class Library
 
         System.out.println("Book is not in the system.");
     }
-    public void returnBook(Book _book)
+    public void returnBook(String title)
     {
-        boolean found = false;
-        int pos = 0;
-        for(int i = 0; i < books.size(); i++)
+        for (Book b : books)
         {
-            if(books.get(i).getTitle() == _book.getTitle())
+            if (b.getTitle().equals(title))
             {
-                pos = i;
-                found = true;
+                if (b.isAvailable())
+                {
+                    System.out.println("This book is already returned.");
+                    return;
+                }
+
+                b.setAvailable(true);
+                System.out.println("Book successfully returned.");
+                return;
             }
         }
-        if(found && books.get(pos).isAvailable() == false)
-        {
-            System.out.println("Book was successfully returned");
-            books.get(pos).setAvailable(true);
-        }
-        else if(found && books.get(pos).isAvailable() == true)
-        {
-            System.out.println("Book was not previously checkout");
-        }
-        else
-        {
-            System.out.println("Book is not in the system");
-        }
+
+        System.out.println("Book not found.");
     }
     public void printBooks()
     {
@@ -99,7 +93,7 @@ public class Library
         System.out.println("]");
 
     }
-    public int findBook(String _title)
+    public boolean findBook(String _title)
     {
         int pos = 0;
         boolean found = false;
@@ -107,17 +101,13 @@ public class Library
         {
             for (int i = 0; i < books.size(); i++) {
 
-                    if (books.get(i).getTitle().equals(_title))
+                    if (books.get(i).getTitle().equals(_title) && books.get(i).isAvailable())
                     {
                         found = true;
-                        pos = i;
                     }
             }
         }
-        else {
-            throw new NoSuchElementException("Book does not exist");
-        }
-        return pos;
+        return found;
     }
     public int findBookAuth(String _author)
     {

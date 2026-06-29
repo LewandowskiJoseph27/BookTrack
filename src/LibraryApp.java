@@ -23,7 +23,7 @@ public class LibraryApp
 
             switch(choice)
             {
-                case 1:
+                case 1: {
                     System.out.println("What is the book title? ");
                     String title = in.nextLine();
 
@@ -37,11 +37,31 @@ public class LibraryApp
                     library.addBook(book);
 
                     break;
-                case 2:
+                }
+                case 2: {
                     library.printBooks();
                     System.out.println("What book would you like to checkout? ");
-                    title = in.nextLine();
+                    String title = in.nextLine();
                     library.checkout(title);
+                    library.printBooks();
+                    break;
+                }
+                case 3: {
+                    System.out.println("What book would you like to return? ");
+                    String title = in.nextLine();
+
+                    library.returnBook(title);
+                    break;
+                }
+                case 4:
+                {
+                    System.out.println("What Book are you looking for? ");
+                    String title = in.nextLine();
+                    boolean found = library.findBook(title);
+                    if(found) {System.out.println("We do have " + title);}
+                    else {System.out.println("We do not have " + title);}
+                }
+
 
 
 
