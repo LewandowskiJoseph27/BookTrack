@@ -61,6 +61,11 @@ public class LibraryApp
                     if(found) {System.out.println("We do have " + title);}
                     else {System.out.println("We do not have " + title);}
                 }
+                case 5:
+                {
+                    library.printBooks();
+                }
+
 
 
 

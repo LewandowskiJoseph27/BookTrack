@@ -90,7 +90,7 @@ public class Library
             }
         }
 
-        System.out.println("]");
+        System.out.println("]\n");
 
     }
     public boolean findBook(String _title)
